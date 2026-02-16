@@ -22,8 +22,7 @@ export default function Callback() {
           console.error("Login error:", error.message);
         }
       }
-
-      
+ 
       router.push('/');
     };
 
