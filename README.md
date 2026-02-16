@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bookmark Manager App
 
-## Getting Started
+A full-stack bookmark management application built using Next.js and Supabase.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Google Authentication (OAuth)
+- Add bookmarks
+- Edit bookmarks
+- Delete bookmarks
+- Search bookmarks
+- Pagination
+- Real-time updates
+- Open links in new tab
+- Private user data (RLS)
+- Loading spinner
+- Responsive design
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Frontend: Next.js (React)
+- Backend: Supabase (Auth + Database)
+- Styling: Tailwind CSS
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Google OAuth login using Supabase Auth.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Database Schema
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### bookmarks table
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Column | Type |
+|--------|------|
+| id | uuid |
+| title | text |
+| url | text |
+| user_id | uuid |
+| created_at | timestamp |
+
+---
+
+## Security
+
+- Row Level Security (RLS)
+- Each user can access only their bookmarks
+
+---
+
+## Challenges Faced
+
+- OAuth redirect issues
+- Hydration mismatch
+- URL validation
+- Pagination logic
+
+---
+
+## Solutions
+
+- Used Supabase OAuth flow
+- Fixed client-side rendering
+- Added URL formatter
+- Implemented pagination with range  
+
+---
+
+## Author
+
+- Vignesh Senthilkumar (Full-Stack developer)
