@@ -11,23 +11,18 @@ export default function Callback() {
   useEffect(() => {
     const handleLogin = async () => {
 
-      const url = new URL(window.location.href);
-      const code = url.searchParams.get("code");
-
       
-      if (code) {
-        const { error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+      await supabase.auth.getSession();
 
-        if (error) {
-          console.error("Login error:", error.message);
-        }
-      }
- 
       router.push('/');
     };
 
     handleLogin();
   }, []);
 
-  return <p>Logging in...</p>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <p>Logging you in...</p>
+    </div>
+  );
 }
